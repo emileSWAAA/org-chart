@@ -1,0 +1,162 @@
+name: Acme Corporation
+
+entities:
+  # Root Department
+  - id: company
+    type: department
+    name: Acme Corporation
+    metadata:
+      founded: "2010"
+      employees: 150
+
+  # Level 1 Departments (report to company)
+  - id: engineering
+    type: department
+    name: Engineering
+    parentId: company
+    metadata:
+      headcount: 45
+      budget: "$5M"
+
+  - id: sales
+    type: department
+    name: Sales
+    parentId: company
+    metadata:
+      headcount: 30
+      quota: "$20M"
+
+  - id: operations
+    type: department
+    name: Operations
+    parentId: company
+    metadata:
+      headcount: 25
+
+  # Level 2 Departments
+  - id: frontend
+    type: department
+    name: Frontend Team
+    parentId: engineering
+    metadata:
+      headcount: 15
+
+  - id: backend
+    type: department
+    name: Backend Team
+    parentId: engineering
+    metadata:
+      headcount: 20
+
+  - id: sales_na
+    type: department
+    name: North America Sales
+    parentId: sales
+    metadata:
+      region: "NA"
+
+  - id: sales_eu
+    type: department
+    name: Europe Sales
+    parentId: sales
+    metadata:
+      region: "EU"
+
+  # Persons in Company (C-Suite)
+  - id: ceo
+    type: person
+    name: Jane Doe
+    parentId: company
+    metadata:
+      title: "CEO"
+      email: jane.doe@acme.com
+
+  # Persons in Engineering
+  - id: cto
+    type: person
+    name: John Smith
+    parentId: engineering
+    metadata:
+      title: "CTO"
+      email: john.smith@acme.com
+
+  - id: eng_lead
+    type: person
+    name: Alice Chen
+    parentId: engineering
+    managerId: cto
+    metadata:
+      title: "Engineering Lead"
+
+  # Persons in Frontend
+  - id: fe_lead
+    type: person
+    name: Bob Wilson
+    parentId: frontend
+    metadata:
+      title: "Frontend Lead"
+
+  - id: fe_dev1
+    type: person
+    name: Carol Davis
+    parentId: frontend
+    managerId: fe_lead
+    metadata:
+      title: "Senior Developer"
+
+  - id: fe_dev2
+    type: person
+    name: Dan Brown
+    parentId: frontend
+    managerId: fe_lead
+    metadata:
+      title: "Developer"
+
+  # Persons in Backend
+  - id: be_lead
+    type: person
+    name: Eve Martinez
+    parentId: backend
+    metadata:
+      title: "Backend Lead"
+
+  - id: be_dev1
+    type: person
+    name: Frank Lee
+    parentId: backend
+    managerId: be_lead
+    metadata:
+      title: "Senior Developer"
+
+  # Persons in Sales
+  - id: vp_sales
+    type: person
+    name: Sarah Johnson
+    parentId: sales
+    metadata:
+      title: "VP Sales"
+      email: sarah.j@acme.com
+
+  # Persons in NA Sales
+  - id: sales_mgr_na
+    type: person
+    name: Mike Taylor
+    parentId: sales_na
+    metadata:
+      title: "Sales Manager NA"
+
+  - id: sales_rep1
+    type: person
+    name: Nancy White
+    parentId: sales_na
+    managerId: sales_mgr_na
+    metadata:
+      title: "Account Executive"
+
+  # Persons in Operations
+  - id: ops_dir
+    type: person
+    name: Oscar Green
+    parentId: operations
+    metadata:
+      title: "Operations Director"

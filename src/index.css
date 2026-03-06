@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary Colors */
+  --color-primary: oklch(0.35 0.08 250); /* Deep Slate Blue */
+  --color-secondary: oklch(0.25 0.02 250); /* Neutral Charcoal */
+  --color-steel: oklch(0.55 0.04 250); /* Steel Gray */
+  --color-accent: oklch(0.75 0.15 195); /* Bright Cyan */
+  
+  /* Background/Foreground */
+  --color-bg: oklch(0.15 0.03 250); /* Dark Slate */
+  --color-bg-light: oklch(0.20 0.03 250);
+  --color-fg: oklch(0.95 0.01 250); /* Light foreground */
+  --color-fg-muted: oklch(0.70 0.02 250);
+  
+  /* Relationship Type Colors */
+  --rel-manages: oklch(0.55 0.04 250); /* Subtle steel for hierarchy */
+  --rel-reports-to: oklch(0.55 0.04 250);
+  --rel-influences: oklch(0.65 0.15 290); /* Purple */
+  --rel-depends-on: oklch(0.70 0.18 50); /* Orange */
+  --rel-owns: oklch(0.65 0.15 330); /* Pink */
+  
+  /* Entity Type Colors */
+  --entity-person: oklch(0.60 0.15 250); /* Blue */
+  --entity-department: oklch(0.60 0.15 290); /* Purple */
+  --entity-role: oklch(0.65 0.15 330); /* Pink */
+  --entity-project: oklch(0.65 0.15 195); /* Cyan */
+  --entity-vendor: oklch(0.70 0.15 70); /* Amber */
+  
+  /* Typography */
+  --font-primary: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Hide scrollbars globally */
+html, body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* Transitions */
+.transition-panel {
+  transition: transform 350ms ease-out, opacity 350ms ease-out;
+}
+
+.transition-hover {
+  transition: all 150ms ease-out;
+}
+
+.transition-glow {
+  transition: all 200ms ease-out;
+}
+
+/* Glow effects */
+.glow-accent {
+  box-shadow: 0 0 20px oklch(0.75 0.15 195 / 0.4);
+}
+
+.glow-subtle {
+  box-shadow: 0 4px 20px oklch(0 0 0 / 0.3);
+}
+
+/* React Flow overrides for dark theme */
+.react-flow__background {
+  background: var(--color-bg) !important;
+}
+
+.react-flow__controls button {
+  background: var(--color-bg-light) !important;
+  border-color: var(--color-secondary) !important;
+  color: var(--color-fg-muted) !important;
+}
+
+.react-flow__controls button:hover {
+  background: var(--color-secondary) !important;
+  color: var(--color-fg) !important;
+}
+
+.react-flow__minimap {
+  background: var(--color-bg-light) !important;
+  border: 1px solid var(--color-secondary) !important;
+}
+
+.react-flow__attribution {
+  display: none;
+}

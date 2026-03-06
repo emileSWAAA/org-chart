@@ -1,0 +1,47 @@
+# Org Chart Manifest Template
+# Copy this file, fill in your entities, and run:
+#   npx github:emileSWAAA/org-chart --file ./org-chart.yaml
+
+name: ORGANIZATION_NAME
+
+entities:
+  # Root department
+  - id: company
+    type: department
+    name: ORGANIZATION_NAME
+    metadata:
+      founded: "YEAR"
+
+  # Add departments (parentId = parent department)
+  # - id: department-id
+  #   type: department
+  #   name: Department Name
+  #   parentId: company
+  #   metadata:
+  #     headcount: 0
+  #     budget: "$0"
+
+  # Add people (parentId = department, managerId = person)
+  # - id: person-id
+  #   type: person
+  #   name: Full Name
+  #   parentId: department-id
+  #   managerId: manager-person-id
+  #   metadata:
+  #     title: Job Title
+  #     email: email@example.com
+
+  # Add vendors (standalone)
+  # - id: vendor-id
+  #   type: vendor
+  #   name: Vendor Name
+  #   metadata:
+  #     contract_value: "$0/year"
+
+# Optional: explicit cross-cutting relationships
+# relationships:
+#   - from: entity-id
+#     to: entity-id
+#     type: collaborates_with
+#     note: Description
+#     strength: medium
